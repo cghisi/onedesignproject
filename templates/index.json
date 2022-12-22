@@ -2,14 +2,48 @@
   "sections": {
     "fd28f8e0-653b-48ab-913b-c8bb9e1d36e7": {
       "type": "video-banner",
+      "blocks": {
+        "52222bfa-096f-4da7-900c-173d132e4eaf": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image banner",
+            "heading_size": "h1"
+          }
+        },
+        "b599ef36-51a4-4f48-928e-a160fca06826": {
+          "type": "text",
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "f17f3a6d-94e8-413e-a09d-9b75e9385af3": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "52222bfa-096f-4da7-900c-173d132e4eaf",
+        "b599ef36-51a4-4f48-928e-a160fca06826",
+        "f17f3a6d-94e8-413e-a09d-9b75e9385af3"
+      ],
       "settings": {
         "video_link": "shopify:\/\/files\/videos\/VIDA_GEOSHIELD_16X9_EN_FINAL_DEC6.mp4",
-        "heading": "Test",
-        "color_text": "#b92727",
-        "bg_button": "#334fb4",
-        "color_button": "#fafafa",
-        "button_label": "Test",
-        "button_link": "shopify:\/\/blogs\/news"
+        "image_overlay_opacity": 0,
+        "desktop_content_position": "top-left",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
       }
     },
     "image_banner": {
