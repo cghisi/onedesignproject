@@ -1,5 +1,17 @@
 {
   "sections": {
+    "fd28f8e0-653b-48ab-913b-c8bb9e1d36e7": {
+      "type": "video-banner",
+      "settings": {
+        "video_link": "shopify:\/\/files\/videos\/VIDA_GEOSHIELD_16X9_EN_FINAL_DEC6.mp4",
+        "heading": "Test",
+        "color_text": "#b92727",
+        "bg_button": "#334fb4",
+        "color_button": "#fafafa",
+        "button_label": "Test",
+        "button_link": "shopify:\/\/blogs\/news"
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -22,7 +34,7 @@
           "settings": {
             "button_label_1": "Shop all",
             "button_link_1": "shopify:\/\/collections\/all",
-            "button_style_secondary_1": true,
+            "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false
@@ -42,7 +54,7 @@
         "desktop_content_position": "middle-left",
         "show_text_box": false,
         "desktop_content_alignment": "left",
-        "color_scheme": "background-1",
+        "color_scheme": "accent-1",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
@@ -148,7 +160,7 @@
       "settings": {
         "heading": "",
         "heading_size": "h1",
-        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video_url": "https:\/\/vimeo.com\/672020906",
         "description": "",
         "full_width": false,
         "color_scheme": "background-1",
@@ -174,8 +186,8 @@
           "settings": {
             "title": "Column",
             "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
+            "link_label": "test",
+            "link": "shopify:\/\/products\/test"
           }
         }
       },
@@ -202,6 +214,7 @@
     }
   },
   "order": [
+    "fd28f8e0-653b-48ab-913b-c8bb9e1d36e7",
     "image_banner",
     "rich_text",
     "featured_collection",
