@@ -1,5 +1,17 @@
 {
   "sections": {
+    "fd28f8e0-653b-48ab-913b-c8bb9e1d36e7": {
+      "type": "video-banner",
+      "settings": {
+        "video_link": "shopify:\/\/files\/videos\/VIDA_GEOSHIELD_16X9_EN_FINAL_DEC6.mp4",
+        "heading": "Test",
+        "color_text": "#b92727",
+        "bg_button": "#334fb4",
+        "color_button": "#fafafa",
+        "button_label": "Test",
+        "button_link": "shopify:\/\/blogs\/news"
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -199,27 +211,15 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "fd28f8e0-653b-48ab-913b-c8bb9e1d36e7": {
-      "type": "video-banner",
-      "settings": {
-        "video_link": "shopify:\/\/files\/videos\/VIDA_GEOSHIELD_16X9_EN_FINAL_DEC6.mp4",
-        "heading": "Test",
-        "color_text": "#b92727",
-        "bg_button": "#334fb4",
-        "color_button": "#fafafa",
-        "button_label": "Test",
-        "button_link": "shopify:\/\/blogs\/news"
-      }
     }
   },
   "order": [
+    "fd28f8e0-653b-48ab-913b-c8bb9e1d36e7",
     "image_banner",
     "rich_text",
     "featured_collection",
     "collage",
     "video",
-    "multicolumn",
-    "fd28f8e0-653b-48ab-913b-c8bb9e1d36e7"
+    "multicolumn"
   ]
 }
