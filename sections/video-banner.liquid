@@ -1,322 +1,126 @@
-﻿{{ 'section-video-banner.css' | asset_url | stylesheet_tag }}
+﻿<style>
+  .index-section--video-embedded video{
+    width:100%;
+  }
+</style>
 
-<div id="Banner-{{ section.id }}" class="banner banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} banner--{{ section.settings.image_height }}{% if section.settings.stack_images_on_mobile and section.settings.image != blank and section.settings.image_2 != blank %} banner--stacked{% endif %}{% if section.settings.adapt_height_first_image and section.settings.image != blank %} banner--adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}">
+<section class="hero-wrapper hero--video">
   {% if section.settings.video_link.media_type == 'video' %}
-  <div class="banner__media media">
-    {{ section.settings.video_link | video_tag: autoplay: true, loop: true, muted: true, controls: false , preload : true}}
-  </div>
-  {% endif %}
-  <div class="banner__content banner__content--{{ section.settings.desktop_content_position }} page-width">
-    <div class="banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient">
-      {%- for block in section.blocks -%}
-        {%- case block.type -%}
-          {%- when 'heading' -%}
-            <h2 class="banner__heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
-              <span>{{ block.settings.heading | escape }}</span>
-            </h2>
-          {%- when 'text' -%}
-            <div class="banner__text {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
-              <span>{{ block.settings.text | escape }}</span>
-            </div>
-          {%- when 'buttons' -%}
-            <div class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}" {{ block.shopify_attributes }}>
-              {%- if block.settings.button_label_1 != blank -%}
-                <a{% if block.settings.button_link_1 == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link_1 }}"{% endif %} class="button{% if block.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}">{{ block.settings.button_label_1 | escape }}</a>
-              {%- endif -%}
-              {%- if block.settings.button_label_2 != blank -%}
-                <a{% if block.settings.button_link_2 == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link_2 }}"{% endif %} class="button{% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}">{{ block.settings.button_label_2 | escape }}</a>
-              {%- endif -%}
-
-            </div>
-        {%- endcase -%}
-      {%- endfor -%}
+    <div class="hero-content hero-content-active">
+      <div class="page-width">
+        <div class="medium-up--one-half">
+        <h1 class="hero-content__title h1 hero-title-active">{{ section.settings.heading }}</h1>
+        {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
+          {% assign background_color = section.settings.background %}
+          {% assign btn_bg_color = section.settings.bg_button %}
+          {% assign btn_text_color = section.settings.color_button %}
+          {% assign text_color = section.settings.color_text %}
+  
+          <div class="hero-content__controls">
+          <a href="{{ section.settings.button_link }}" class="hero-content-link  hero-link-active" style="background-color: {{ btn_bg_color }}; color: {{ btn_text_color }}">
+            {{ section.settings.button_label | escape }}
+          </a>
+          </div>
+        {%- endif -%}
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+    <div class="hero--video-html">
+      {{ section.settings.video_link | video_tag: autoplay: true, loop: true, muted: true, controls: false , preload : true}}
+    </div>  
+  {% endif %}
+</section>
 
 {% schema %}
 {
-  "name": "t:sections.video-banner.name",
-  "tag": "section",
-  "class": "section",
+  "name": "Video Banner",
+  "class": "index-section index-section--video-banner",
   "settings": [
     {
       "type": "video",
       "id": "video_link",
-      "label": "t:sections.video-banner.settings.video.label"
-    },
-    {
-      "type": "range",
-      "id": "image_overlay_opacity",
-      "min": 0,
-      "max": 100,
-      "step": 10,
-      "unit": "%",
-      "label": "t:sections.video-banner.settings.image_overlay_opacity.label",
-      "default": 0
-    },
-    {
-      "type": "select",
-      "id": "desktop_content_position",
-      "options": [
-        {
-          "value": "top-left",
-          "label": "t:sections.video-banner.settings.desktop_content_position.options__1.label"
-        },
-        {
-          "value": "top-center",
-          "label": "t:sections.video-banner.settings.desktop_content_position.options__2.label"
-        },
-        {
-          "value": "top-right",
-          "label": "t:sections.video-banner.settings.desktop_content_position.options__3.label"
-        },
-        {
-          "value": "middle-left",
-          "label": "t:sections.video-banner.settings.desktop_content_position.options__4.label"
-        },
-        {
-          "value": "middle-center",
-          "label": "t:sections.video-banner.settings.desktop_content_position.options__5.label"
-        },
-        {
-          "value": "middle-right",
-          "label": "t:sections.video-banner.settings.desktop_content_position.options__6.label"
-        },
-        {
-          "value": "bottom-left",
-          "label": "t:sections.video-banner.settings.desktop_content_position.options__7.label"
-        },
-        {
-          "value": "bottom-center",
-          "label": "t:sections.video-banner.settings.desktop_content_position.options__8.label"
-        },
-        {
-          "value": "bottom-right",
-          "label": "t:sections.video-banner.settings.desktop_content_position.options__9.label"
-        }
-      ],
-      "default": "middle-center",
-      "label": "t:sections.video-banner.settings.desktop_content_position.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_text_box",
-      "default": true,
-      "label": "t:sections.video-banner.settings.show_text_box.label"
-    },
-    {
-      "type": "select",
-      "id": "desktop_content_alignment",
-      "options": [
-        {
-          "value": "left",
-          "label": "t:sections.video-banner.settings.desktop_content_alignment.options__1.label"
-        },
-        {
-          "value": "center",
-          "label": "t:sections.video-banner.settings.desktop_content_alignment.options__2.label"
-        },
-        {
-          "value": "right",
-          "label": "t:sections.video-banner.settings.desktop_content_alignment.options__3.label"
-        }
-      ],
-      "default": "center",
-      "label": "t:sections.video-banner.settings.desktop_content_alignment.label"
-    },
-    {
-      "type": "select",
-      "id": "color_scheme",
-      "options": [
-        {
-          "value": "accent-1",
-          "label": "t:sections.all.colors.accent_1.label"
-        },
-        {
-          "value": "accent-2",
-          "label": "t:sections.all.colors.accent_2.label"
-        },
-        {
-          "value": "background-1",
-          "label": "t:sections.all.colors.background_1.label"
-        },
-        {
-          "value": "background-2",
-          "label": "t:sections.all.colors.background_2.label"
-        },
-        {
-          "value": "inverse",
-          "label": "t:sections.all.colors.inverse.label"
-        }
-      ],
-      "default": "background-1",
-      "label": "t:sections.all.colors.label",
-      "info": "t:sections.video-banner.settings.color_scheme.info"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.video-banner.settings.header.content"
-    },
-    {
-      "type": "select",
-      "id": "mobile_content_alignment",
-      "options": [
-        {
-          "value": "left",
-          "label": "t:sections.video-banner.settings.mobile_content_alignment.options__1.label"
-        },
-        {
-          "value": "center",
-          "label": "t:sections.video-banner.settings.mobile_content_alignment.options__2.label"
-        },
-        {
-          "value": "right",
-          "label": "t:sections.video-banner.settings.mobile_content_alignment.options__3.label"
-        }
-      ],
-      "default": "center",
-      "label": "t:sections.video-banner.settings.mobile_content_alignment.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "stack_images_on_mobile",
-      "default": true,
-      "label": "t:sections.video-banner.settings.stack_images_on_mobile.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_text_below",
-      "default": true,
-      "label": "t:sections.video-banner.settings.show_text_below.label"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "heading",
-      "name": "t:sections.video-banner.blocks.heading.name",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "heading",
-          "default": "Image banner",
-          "label": "t:sections.video-banner.blocks.heading.settings.heading.label"
-        },
-        {
-          "type": "select",
-          "id": "heading_size",
-          "options": [
-            {
-              "value": "h2",
-              "label": "t:sections.all.heading_size.options__1.label"
-            },
-            {
-              "value": "h1",
-              "label": "t:sections.all.heading_size.options__2.label"
-            },
-            {
-              "value": "h0",
-              "label": "t:sections.all.heading_size.options__3.label"
-            }
-          ],
-          "default": "h1",
-          "label": "t:sections.all.heading_size.label"
-        }
-      ]
+      "label": {
+        "en": "Video Link",
+        "fr": "Lien de la video"
+      }
     },
     {
       "type": "text",
-      "name": "t:sections.video-banner.blocks.text.name",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "text",
-          "default": "Give customers details about the banner image(s) or content on the template.",
-          "label": "t:sections.video-banner.blocks.text.settings.text.label"
-        },
-        {
-          "type": "select",
-          "id": "text_style",
-          "options": [
-            {
-              "value": "body",
-              "label": "t:sections.video-banner.blocks.text.settings.text_style.options__1.label"
-            },
-            {
-              "value": "subtitle",
-              "label": "t:sections.video-banner.blocks.text.settings.text_style.options__2.label"
-            },
-            {
-              "value": "caption-with-letter-spacing",
-              "label": "t:sections.video-banner.blocks.text.settings.text_style.options__3.label"
-            }
-          ],
-          "default": "body",
-          "label": "t:sections.video-banner.blocks.text.settings.text_style.label"
-        }
-      ]
+      "id": "heading",
+      "label": {
+        "en": "Heading",
+        "fr": "En tete"
+      }
     },
     {
-      "type": "buttons",
-      "name": "t:sections.video-banner.blocks.buttons.name",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "button_label_1",
-          "default": "Button label",
-          "label": "t:sections.video-banner.blocks.buttons.settings.button_label_1.label",
-          "info": "t:sections.video-banner.blocks.buttons.settings.button_label_1.info"
-        },
-        {
-          "type": "url",
-          "id": "button_link_1",
-          "label": "t:sections.video-banner.blocks.buttons.settings.button_link_1.label"
-        },
-        {
-          "type": "checkbox",
-          "id": "button_style_secondary_1",
-          "default": false,
-          "label": "t:sections.video-banner.blocks.buttons.settings.button_style_secondary_1.label"
-        },
-        {
-          "type": "text",
-          "id": "button_label_2",
-          "default": "Button label",
-          "label": "t:sections.video-banner.blocks.buttons.settings.button_label_2.label",
-          "info": "t:sections.video-banner.blocks.buttons.settings.button_label_2.info"
-        },
-        {
-          "type": "url",
-          "id": "button_link_2",
-          "label": "t:sections.video-banner.blocks.buttons.settings.button_link_2.label"
-        },
-        {
-          "type": "checkbox",
-          "id": "button_style_secondary_2",
-          "default": false,
-          "label": "t:sections.video-banner.blocks.buttons.settings.button_style_secondary_2.label"
-        }
-      ]
+      "type": "color",
+      "id": "color_text",
+      "label": "Text Color"
+    },
+    {
+        "type": "color",
+        "id": "bg_button",
+        "label": "Button Background Color"
+    },
+    {
+        "type": "color",
+        "id": "color_button",
+        "label": "Button Text Color"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": {
+        "en": "Button label",
+        "fr": "Label du bouton"
+      }
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": {
+        "en": "Button link",
+        "fr": "Lien"
+      }
     }
   ],
   "presets": [
-    {
-      "name": "t:sections.video-banner.presets.name",
-      "blocks": [
-        {
-          "type": "heading"
-        },
-        {
-          "type": "text"
-        },
-        {
-          "type": "buttons"
-        }
-      ]
+  {
+    "name": {
+      "en": "Video Banner",
+      "fr": "Banniere Video"
+    },
+    "category": {
+      "en": "Video",
+      "fr": "Video"
     }
-  ]
+  }
+]
 }
 {% endschema %}
+
+{% stylesheet %}
+.hero--video .hero-content{
+  text-align:left;
+  z-index:10;
+}
+
+.hero--video .hero-content__title{
+  padding: 0px
+}
+
+.hero--video .hero--video-html{
+  z-index:0
+}
+
+@media only screen and (max-device-width: 480px) {
+  .hero--video .hero--video-html{
+    min-height:50vh;
+  }
+  .hero--video .hero--video-html video{
+    object-fit: cover;
+    height: 100%;
+    position: absolute;
+  }
+}
+{% endstylesheet %}
