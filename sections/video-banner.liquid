@@ -3,7 +3,7 @@
 <div class="hero-wrapper">
   {% if section.settings.video_link.media_type == 'video' %} 
     <div class="hero-content hero-content--{{ section.settings.desktop_content_position }}">
-      <div class="">
+      <div>
       {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when 'heading' -%}
@@ -25,6 +25,7 @@
               </div>
           {%- endcase -%}
         {%- endfor -%}
+        </div>
     </div>
     <div class="hero--video-html">
       {{ section.settings.video_link | video_tag: autoplay: true, loop: true, muted: true, controls: false , preload : true}}
