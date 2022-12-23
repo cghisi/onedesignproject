@@ -1,0 +1,32 @@
+.index-section--video-banner .hero--video .hero-content {
+  text-align: left;
+  z-index: 10;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  text-align: center;
+}
+
+.index-section--video-banner .hero--video .hero--video-html video {
+  width: 100%;
+}
+
+.hero--video .hero-content__title {
+  padding: 0px;
+}
+
+.hero--video .hero--video-html {
+  z-index: 0;
+}
+
+@media only screen and (max-device-width: 480px) {
+  .hero--video .hero--video-html {
+    min-height: 50vh;
+  }
+
+  .hero--video .hero--video-html video {
+    object-fit: cover;
+    height: 100%;
+    position: absolute;
+  }
+}
