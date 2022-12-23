@@ -1,12 +1,9 @@
 .hero-wrapper{
-  display: flex;
   position: relative;
-  min-height: 75rem;
 }
 
 .hero-content {
-    display: flex;
-    position: relative;
+    position: absolute;
     width: 100%;
     align-items: center;
     justify-content: center;
