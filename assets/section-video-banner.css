@@ -1,7 +1,7 @@
 .hero-wrapper{
   display: flex;
   position: relative;
-  min-height: 72rem;
+  min-height: 100rem;
 }
 
 .hero-content {
@@ -15,10 +15,15 @@
 
 .hero--video-html {
   height:100%;
-      position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow:hidden;
+}
+
+.hero--video-html video{
+  width:100%;
 }
 
 
