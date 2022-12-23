@@ -1,3 +1,9 @@
+.hero-wrapper{
+  display: flex;
+  position: relative;
+}
+
+
 .index-section--video-banner .hero--video .hero-content {
   text-align: left;
   z-index: 10;
@@ -7,10 +13,7 @@
   text-align: center;
 }
 
-.hero-wrapper{
-  display: flex;
-  position: relative;
-}
+
 
 .index-section--video-banner .hero--video .hero--video-html video {
   width: 100%;

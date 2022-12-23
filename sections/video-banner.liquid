@@ -1,10 +1,7 @@
 {{ 'section-video-banner.css' | asset_url | stylesheet_tag }}
 
 <section class="hero-wrapper hero--video">
-  {% if section.settings.video_link.media_type == 'video' %}
-    <div class="hero--video-html">
-      {{ section.settings.video_link | video_tag: autoplay: true, loop: true, muted: true, controls: false , preload : true}}
-    </div>  
+  {% if section.settings.video_link.media_type == 'video' %} 
     <div class="hero-content hero-content--{{ section.settings.desktop_content_position }}">
         <h1 class="hero-content__title h1 hero-title-active">{{ section.settings.heading }}</h1>
         {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
@@ -20,6 +17,9 @@
           </div>
         {%- endif -%}
     </div>
+    <div class="hero--video-html">
+      {{ section.settings.video_link | video_tag: autoplay: true, loop: true, muted: true, controls: false , preload : true}}
+    </div> 
   {% endif %}
 </section>
 
