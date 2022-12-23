@@ -7,7 +7,7 @@
   text-align: center;
 }
 
-.hero-wrapper .hero--video{
+.hero-wrapper{
   display: flex;
   position: relative;
 }
