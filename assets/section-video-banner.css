@@ -12,6 +12,18 @@
   height: 100%;
 }
 
+.hero-content-align-right {
+    text-align: right;
+  }
+
+  .hero-content-align-left {
+    text-align: left;
+  }
+  
+.hero-content-align-center {
+    text-align: center;
+  }
+
 .hero--video-html {
   height:100%;
   left: 0;
