@@ -1,7 +1,7 @@
 .index-section--video-banner .hero--video .hero-content {
   text-align: left;
   z-index: 10;
-  position: absolute;
+  position: relative;
   width: 100%;
   left: 0;
   text-align: center;
@@ -16,6 +16,7 @@
 }
 
 .hero--video .hero--video-html {
+  position: absolute;
   z-index: 0;
 }
 
