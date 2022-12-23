@@ -1,8 +1,4 @@
-﻿<style>
-  .index-section--video-embedded video{
-    width:100%;
-  }
-</style>
+﻿{{ 'section-video-banner.css' | asset_url | stylesheet_tag }}
 
 <section class="hero-wrapper hero--video">
   {% if section.settings.video_link.media_type == 'video' %}
@@ -98,29 +94,3 @@
 ]
 }
 {% endschema %}
-
-{% stylesheet %}
-.hero--video .hero-content{
-  text-align:left;
-  z-index:10;
-}
-
-.hero--video .hero-content__title{
-  padding: 0px
-}
-
-.hero--video .hero--video-html{
-  z-index:0
-}
-
-@media only screen and (max-device-width: 480px) {
-  .hero--video .hero--video-html{
-    min-height:50vh;
-  }
-  .hero--video .hero--video-html video{
-    object-fit: cover;
-    height: 100%;
-    position: absolute;
-  }
-}
-{% endstylesheet %}
