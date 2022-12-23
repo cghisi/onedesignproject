@@ -7,15 +7,15 @@
       {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when 'heading' -%}
-              <h2 class="banner__heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+              <h2 class="hero-content__heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
                 <span>{{ block.settings.heading | escape }}</span>
               </h2>
             {%- when 'text' -%}
-              <div class="banner__text {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
+              <div class="hero-content__text {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
                 <span>{{ block.settings.text | escape }}</span>
               </div>
             {%- when 'buttons' -%}
-              <div class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}" {{ block.shopify_attributes }}>
+              <div class="hero-content__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}" {{ block.shopify_attributes }}>
                 {%- if block.settings.button_label_1 != blank -%}
                   <a{% if block.settings.button_link_1 == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link_1 }}"{% endif %} class="button{% if block.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}">{{ block.settings.button_label_1 | escape }}</a>
                 {%- endif -%}
@@ -25,15 +25,6 @@
               </div>
           {%- endcase -%}
         {%- endfor -%}
-        <h1 class="hero-content__title h1 hero-title-active">{{ section.settings.heading }}</h1>
-        {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}    
-            <div>
-              <a href="{{ section.settings.button_link }}" class="hero-content-link">
-                {{ section.settings.button_label | escape }}
-              </a>
-            </div>
-          {%- endif -%}
-        </div>
     </div>
     <div class="hero--video-html">
       {{ section.settings.video_link | video_tag: autoplay: true, loop: true, muted: true, controls: false , preload : true}}
@@ -117,30 +108,6 @@
       ],
       "default": "center",
       "label": "t:sections.image-banner.settings.desktop_content_alignment.label"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": {
-        "en": "Heading",
-        "fr": "En tete"
-      }
-    },
-    {
-      "type": "text",
-      "id": "button_label",
-      "label": {
-        "en": "Button label",
-        "fr": "Label du bouton"
-      }
-    },
-    {
-      "type": "url",
-      "id": "button_link",
-      "label": {
-        "en": "Button link",
-        "fr": "Lien"
-      }
     }
   ],
   "blocks": [
