@@ -1,6 +1,6 @@
 {{ 'section-video-banner.css' | asset_url | stylesheet_tag }}
 
-<section class="hero-wrapper">
+<div class="hero-wrapper">
   {% if section.settings.video_link.media_type == 'video' %} 
     <div class="hero-content hero-content--{{ section.settings.desktop_content_position }}">
       <div>
@@ -23,7 +23,7 @@
       {{ section.settings.video_link | video_tag: autoplay: true, loop: true, muted: true, controls: false , preload : true}}
     </div> 
   {% endif %}
-</section>
+</div>
 
 {% schema %}
 {

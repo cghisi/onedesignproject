@@ -1,32 +1,26 @@
 .hero-wrapper{
   display: flex;
   position: relative;
+  min-height: 72rem;
 }
 
-
-.index-section--video-banner .hero--video .hero-content {
-  text-align: left;
-  z-index: 10;
-  position: relative;
-  width: 100%;
-  left: 0;
-  text-align: center;
+.hero-content {
+    display: flex;
+    position: relative;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
 }
 
-
-
-.index-section--video-banner .hero--video .hero--video-html video {
-  width: 100%;
+.hero--video-html {
+  height:100%;
+      position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
 }
 
-.hero--video .hero-content__title {
-  padding: 0px;
-}
-
-.hero--video .hero--video-html {
-  position: absolute;
-  z-index: 0;
-}
 
 @media only screen and (max-device-width: 480px) {
   .hero--video .hero--video-html {
