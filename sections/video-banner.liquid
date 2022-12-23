@@ -7,7 +7,7 @@
       {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when 'heading' -%}
-              {% assign text_color = section.settings.color_text %}
+              {% assign text_color = block.settings.color_text %}
               <h2 class="hero-content__heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}  style="color: {{ text_color }}">
                 <span>{{ block.settings.heading | escape }}</span>
               </h2>
